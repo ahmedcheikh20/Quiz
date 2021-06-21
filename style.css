@@ -7,14 +7,14 @@ body {
 	background-color: #545452;
 }
 
-.container{
+#container{
 	width: 200px;
 	max-width: 100%;
 	background-color: #3ba95a;
 	border-radius: 5px;
 	padding: 10px;
 	box-shadow: 5px 10px #888888;
-	display: none;
+	
 }
 
 .btn-grid{

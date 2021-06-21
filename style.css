@@ -1,0 +1,17 @@
+*, *::before, *::after {
+   box-sizing : border-box;
+   font-family: Gotham Rounded;
+}
+
+body {
+	background-color: #152f69;
+}
+
+.container{
+	width: 200px;
+	max-width: 100%;
+	background-color: #3ba95a;
+	border-radius: 5px;
+	padding: 10px;
+	box-shadow: 5px 10px #888888;
+}

@@ -4,7 +4,7 @@
 }
 
 body {
-	background-color: #152f69;
+	background-color: #545452;
 }
 
 .container{
@@ -14,4 +14,52 @@ body {
 	border-radius: 5px;
 	padding: 10px;
 	box-shadow: 5px 10px #888888;
+	display: none;
+}
+
+.btn-grid{
+	display: grid;
+	margin: 20px 0px;
+}
+
+.btn{
+	background-color: #888888 ;
+	border-radius: 10px;
+	color: #1d0b4e;
+}
+
+.btn:hover {
+	border-color: gold;
+}
+
+.btn.correct{
+	background-color: green;
+}
+
+.btn.wrong{
+	background-color: red;
+}
+
+
+
+
+.start-btn{
+	font-size: 1.5rem;
+	font-weight: bold;
+	padding: 10px 20px;
+}
+
+
+.hide{
+	display: none;
+}
+
+.center{
+	padding: 0;
+	margin: 0;
+	display: flex;
+	width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
 }

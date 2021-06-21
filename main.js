@@ -1,6 +1,16 @@
 const startButton = $('#start-btn')
+const choice1 = $('#1')
+const choice2 = $('#2')
+const choice3 = $('#3')
+const choice4 = $('#4')
 
 startButton.click(startGame)
+choice1.click(A1)
+/*
+choice2.click(A2)
+choice3.click(A3)
+choice4.click(A4)
+*/
 var array = [
     {
         question: 'What is the baby of a moth known as?',
@@ -44,4 +54,13 @@ function setNextQuestion(array){
      $('#3').text(array[questionindex]['choices'][2])
      $('#4').text(array[questionindex]['choices'][3])
      
+}
+
+function A1(){
+      $("#2").removeClass("btn");
+      $("#3").removeClass("btn");
+      $("#4").removeClass("btn");
+      $("#2").addClass("hide");
+      $("#3").addClass("hide");
+      $("#4").addClass("hide");
 }

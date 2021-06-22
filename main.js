@@ -4,6 +4,8 @@ const choice2 = $('#2')
 const choice3 = $('#3')
 const choice4 = $('#4')
 const next = $('#Next')
+const result = $('#result')
+const resett = $('#reset')
 var correct
 var score = 0
 var answer = 0
@@ -14,6 +16,115 @@ choice2.click(A2)
 choice3.click(A3)
 choice4.click(A4)
 next.click(nextQuiz)
+result.click(resulta)
+resett.click(reset)
+
+
+
+
+function startGame(){
+	$("#start-btn").addClass("hide")
+	$("div").removeClass("hide")
+	setNextQuestion(array)
+ }
+
+
+function setNextQuestion(array){
+	var questionindex = Math.floor(Math.random() * array.length)
+     $('#question').text(array[questionindex]['question'])
+     $('#1').text(array[questionindex]['choices'][0])
+     $('#2').text(array[questionindex]['choices'][1])
+     $('#3').text(array[questionindex]['choices'][2])
+     $('#4').text(array[questionindex]['choices'][3])
+     correct = array[questionindex]['correctAnswer']
+     array.splice(array[questionindex],1)  
+     console.log('#reset') 
+}
+
+function A1(){
+      $("#2").removeClass("btn");
+      $("#3").removeClass("btn");
+      $("#4").removeClass("btn");
+      $("#2").addClass("hide");
+      $("#3").addClass("hide");
+      $("#4").addClass("hide");
+      answer ++
+      if(correct === 0){
+        score++
+      }
+}
+function A2(){
+      $("#1").removeClass("btn");
+      $("#3").removeClass("btn");
+      $("#4").removeClass("btn");
+      $("#1").addClass("hide");
+      $("#3").addClass("hide");
+      $("#4").addClass("hide");
+      answer ++
+      if(correct === 1){
+        score++
+      }
+}
+function A3(){
+      $("#2").removeClass("btn");
+      $("#1").removeClass("btn");
+      $("#4").removeClass("btn");
+      $("#2").addClass("hide");
+      $("#1").addClass("hide");
+      $("#4").addClass("hide");
+      answer ++
+      if(correct === 2){
+        score++
+      }
+}
+function A4(){
+      $("#2").removeClass("btn");
+      $("#3").removeClass("btn");
+      $("#1").removeClass("btn");
+      $("#2").addClass("hide");
+      $("#3").addClass("hide");
+      $("#1").addClass("hide");
+      answer ++
+      if(correct === 3){
+        score++
+      }
+}
+
+function nextQuiz(){
+
+	setNextQuestion(array)
+	$("#1").removeClass("hide");
+	$("#2").removeClass("hide");
+    $("#3").removeClass("hide");
+    $("#4").removeClass("hide")
+    $("#1").addClass("btn");
+    $("#2").addClass("btn");
+    $("#3").addClass("btn");
+    $("#4").addClass("btn");
+    if(answer === 9){
+    	 $("#result").removeClass("hide")
+    }
+}
+
+
+function resulta(){
+    $("#reset").removeClass("hide")
+    $('#question-container').addClass('hide')
+    $('#question-container').addClass('hide')
+    $('#result').addClass('hide')
+}
+
+
+function reset(){
+	var array = mainarray
+	score = 0
+	answer = 0
+	$('#question-container').removeClass("hide")
+	setNextQuestion(array)
+}
+
+
+
 
 var array = [
     {
@@ -190,85 +301,3 @@ const mainarray =  [
         correctAnswer: 3
     },
 ]
-
-function startGame(){
-	$("#start-btn").addClass("hide")
-	$("div").removeClass("hide")
-	setNextQuestion(array)
- }
-
-
-function setNextQuestion(array){
-	var questionindex = Math.floor(Math.random() * array.length)
-     $('#question').text(array[questionindex]['question'])
-     $('#1').text(array[questionindex]['choices'][0])
-     $('#2').text(array[questionindex]['choices'][1])
-     $('#3').text(array[questionindex]['choices'][2])
-     $('#4').text(array[questionindex]['choices'][3])
-     correct = array[questionindex]['correctAnswer']
-     array.splice(array[questionindex],1)
-     console.log(array.length)
-     console.log(mainarray.length)
-     
-}
-
-function A1(){
-      $("#2").removeClass("btn");
-      $("#3").removeClass("btn");
-      $("#4").removeClass("btn");
-      $("#2").addClass("hide");
-      $("#3").addClass("hide");
-      $("#4").addClass("hide");
-      answer ++
-      if(correct === 0){
-        score++
-      }
-}
-function A2(){
-      $("#1").removeClass("btn");
-      $("#3").removeClass("btn");
-      $("#4").removeClass("btn");
-      $("#1").addClass("hide");
-      $("#3").addClass("hide");
-      $("#4").addClass("hide");
-      answer ++
-      if(correct === 1){
-        score++
-      }
-}
-function A3(){
-      $("#2").removeClass("btn");
-      $("#1").removeClass("btn");
-      $("#4").removeClass("btn");
-      $("#2").addClass("hide");
-      $("#1").addClass("hide");
-      $("#4").addClass("hide");
-      answer ++
-      if(correct === 2){
-        score++
-      }
-}
-function A4(){
-      $("#2").removeClass("btn");
-      $("#3").removeClass("btn");
-      $("#1").removeClass("btn");
-      $("#2").addClass("hide");
-      $("#3").addClass("hide");
-      $("#1").addClass("hide");
-      answer ++
-      if(correct === 3){
-        score++
-      }
-}
-
-function nextQuiz(){
-	setNextQuestion(array)
-	$("#1").removeClass("hide");
-	$("#2").removeClass("hide");
-    $("#3").removeClass("hide");
-    $("#4").removeClass("hide")
-    $("#1").addClass("btn");
-    $("#2").addClass("btn");
-    $("#3").addClass("btn");
-    $("#4").addClass("btn");
-}

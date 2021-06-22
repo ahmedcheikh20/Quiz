@@ -9,7 +9,7 @@ const resett = $('#reset')
 var correct
 var score = 0
 var answer = 0
-
+var saved = [] 
 startButton.click(startGame)
 choice1.click(A1)
 choice2.click(A2)
@@ -37,8 +37,9 @@ function setNextQuestion(array){
      $('#3').text(array[questionindex]['choices'][2])
      $('#4').text(array[questionindex]['choices'][3])
      correct = array[questionindex]['correctAnswer']
-     array.splice(array[questionindex],1)  
-     console.log('#reset') 
+     var element = array.splice(array[questionindex],1)[0]
+     
+      saved.push(element)     
 }
 
 function A1(){
@@ -48,7 +49,7 @@ function A1(){
       $("#2").addClass("hide");
       $("#3").addClass("hide");
       $("#4").addClass("hide");
-      answer ++
+      
       if(correct === 0){
         score++
       }
@@ -60,7 +61,7 @@ function A2(){
       $("#1").addClass("hide");
       $("#3").addClass("hide");
       $("#4").addClass("hide");
-      answer ++
+      
       if(correct === 1){
         score++
       }
@@ -72,7 +73,7 @@ function A3(){
       $("#2").addClass("hide");
       $("#1").addClass("hide");
       $("#4").addClass("hide");
-      answer ++
+      
       if(correct === 2){
         score++
       }
@@ -84,7 +85,7 @@ function A4(){
       $("#2").addClass("hide");
       $("#3").addClass("hide");
       $("#1").addClass("hide");
-      answer ++
+      
       if(correct === 3){
         score++
       }
@@ -101,26 +102,40 @@ function nextQuiz(){
     $("#2").addClass("btn");
     $("#3").addClass("btn");
     $("#4").addClass("btn");
-    if(answer === 9){
+    answer++
+    if(answer === 10){
     	 $("#result").removeClass("hide")
+    	 $('#Next').addClass('hide')
     }
+    
+    console.log(answer)
+    console.log(array)
+    console.log(saved)
+    console.log(score)
 }
 
 
 function resulta(){
     $("#reset").removeClass("hide")
-    $('#question-container').addClass('hide')
-    $('#question-container').addClass('hide')
+    $('#container').addClass('hide')   
     $('#result').addClass('hide')
+    $('#score').removeClass('hide')
+    $('#score').text('your score is ' + score)
 }
 
 
 function reset(){
-	var array = mainarray
+    saved.forEach((e)=>array.push(e))
+    saved = []
 	score = 0
 	answer = 0
-	$('#question-container').removeClass("hide")
-	setNextQuestion(array)
+	nextQuiz()
+	$('#container').removeClass("hide")
+	$('#Next').removeClass("hide")
+	$('#reset').addClass('hide')
+	$('#score').addClass('hide')
+
+	
 }
 
 

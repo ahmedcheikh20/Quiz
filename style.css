@@ -4,13 +4,13 @@
 }
 
 body {
-	background-color: #545452;
+	background-image: url(img/back.gif);
 }
 
 #container{
-	width: 200px;
+	width: 400px;
 	max-width: 100%;
-	background-color: #3ba95a;
+	background-color: #ffc107db;
 	border-radius: 5px;
 	padding: 10px;
 	box-shadow: 5px 10px #888888;
@@ -26,27 +26,29 @@ body {
 	background-color: #888888 ;
 	border-radius: 10px;
 	color: #1d0b4e;
+	font-style: style;
+	color: white;
+	width: 200px;
+	font-size: 19px;
 }
 
 .btn:hover {
 	border-color: gold;
 }
 
-.btn.correct{
-	background-color: green;
-}
-
-.btn.wrong{
-	background-color: red;
-}
 
 
 
 
-.start-btn{
-	font-size: 1.5rem;
-	font-weight: bold;
-	padding: 10px 20px;
+#start-btn{
+	background-color: #2196F3; 
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold
 }
 
 
@@ -62,4 +64,52 @@ body {
 	height: 100vh;
 	justify-content: center;
 	align-items: center;
+}
+
+#score {
+	color: red;
+}
+
+#question{
+	font-size: 22px;
+	color: white;
+}
+
+#controls{
+  justify-content: center;
+  align-items: center;
+}
+
+#Next{
+	 width: 200px;
+	 height: 25px;
+	 border-radius: 12px;
+	 background-color: #2196F3;
+	 
+}
+
+#result{
+	background-color: #2196F3; 
+  border-radius: 12px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 500px;
+  margin-left: -245px;
+	 
+}
+
+
+#reset{
+	background-color: red; 
+  border-radius: 12px;
+  color: white;
+  padding: 20px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold
 }
